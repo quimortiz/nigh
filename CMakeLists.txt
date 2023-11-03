@@ -20,7 +20,7 @@ add_library(nigh INTERFACE)
 add_library(nigh::nigh ALIAS nigh)
 
 target_include_directories(
-  nigh INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  nigh INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
                      $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_compile_features(nigh INTERFACE cxx_std_17)
@@ -54,5 +54,5 @@ install(FILES "${PROJECT_BINARY_DIR}/nighConfig.cmake"
               "${PROJECT_BINARY_DIR}/nighConfigVersion.cmake"
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/nigh/cmake)
 
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/nigh DESTINATION include)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/nigh DESTINATION src)
 
