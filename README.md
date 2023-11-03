@@ -1,4 +1,28 @@
-# nigh
+# Why this Fork? 
+
+This fork adds a new CMakeLists.txt for better integration in dowstream projects. 
+
+The goal is to get this functionality, 
+
+```
+find_package(Eigen3 REQUIRED)
+
+include(FetchContent)
+
+FetchContent_Declare(
+  pybind11
+  GIT_REPOSITORY https://github.com/pybind/pybind11/
+  GIT_TAG v2.11.1)
+
+FetchContent_MakeAvailable(pybind11)
+
+pybind11_add_module(pydynotree dynotree_pybindings.cpp)
+target_link_libraries(pydynotree PRIVATE dynotree::dynotree Eigen3::Eigen)
+set_property(TARGET pydynotree PROPERTY POSITION_INDEPENDENT_CODE ON)
+```
+
+
+# Original README NIGH
 Nigh is a *concurrent* exact nearest neighbor searching library for Euclidean, SO(3), SE(3), SO(2), SE(2), and weighted combinations thereof.  As a concurrent data structure it supports multiple threads concurrently inserting and querying the data structure with minimal wait time.  As such it is ideal for embedding into parallel algorithms which require sharing a nearest neighbor data structure between multiple threads.
 
 Nigh is a header-only library.  Its only dependency (Eigen) is also a header-only library.  Installation thus requires copying the header files into a known location.
