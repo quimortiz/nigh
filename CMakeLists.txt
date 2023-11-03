@@ -56,11 +56,3 @@ install(FILES "${PROJECT_BINARY_DIR}/nighConfig.cmake"
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/nigh DESTINATION include)
 
-if(BUILD_TESTING)
-  enable_testing()
-  add_subdirectory(test/cpp)
-endif()
-
-if(BUILD_PYTHON_BINDINGS)
-  add_subdirectory(bindings/python)
-endif()
